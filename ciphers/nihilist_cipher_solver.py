@@ -7,6 +7,9 @@ class NihilistSolver(CipherSolver):
     
     def encode(self, plaintext, keyword = None) -> str:
         polybius_square = self.get_polybius_key(keyword)
+        list_of_plaintext_in_letters = []
+        for letter in plaintext:
+            list_of_plaintext_in_letters.append(self.get_number_of_letter_in_polybius_square(letter))
 
     
     def decode(self, ciphertext, keyword = None) -> str:
