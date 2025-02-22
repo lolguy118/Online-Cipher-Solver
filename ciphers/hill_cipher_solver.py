@@ -5,9 +5,9 @@ class HillCipherSolver(CipherSolver):
     def __init__(self) -> None:
         super().__init__()
 
-    def encode(self, plaintext: str, keyword: str = None) -> str:
+    def encode(self, plaintext: str, keyword1 : str = None, keyword2 : str = None) -> str:
         divided_plaintext = self.get_divided_text(plaintext)
-        encoding_matrix = self.get_encoding_matrix(keyword)
+        encoding_matrix = self.get_encoding_matrix(keyword1)
         return self.get_final_text(divided_plaintext, encoding_matrix)
 
     def get_encoding_matrix(self, keyword: str) -> list:
@@ -16,9 +16,9 @@ class HillCipherSolver(CipherSolver):
             keyword_matrix.append(self.letters_to_numbers[letter])
         return keyword_matrix
 
-    def decode(self, ciphertext, keyword : str = None) -> str:
+    def decode(self, ciphertext, keyword1 : str = None, keyword2 : str = None) -> str:
         divided_ciphertext = self.get_divided_text(ciphertext)
-        decoding_matrix = self.get_decoding_matrix(keyword)
+        decoding_matrix = self.get_decoding_matrix(keyword1)
         return self.get_final_text(divided_ciphertext, decoding_matrix)
 
     def get_determinant(self, matrix: list) -> int:

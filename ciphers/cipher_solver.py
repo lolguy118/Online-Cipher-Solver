@@ -7,11 +7,11 @@ class CipherSolver(ABC):
         self.multiplicative_inverses =  {1 : 1, 3 : 9, 5: 21, 7 : 15, 9 : 3, 11 : 19, 15 : 7, 17 : 23, 19 : 11, 21 : 5, 23 : 17, 25 : 25}
 
     @abstractmethod
-    def encode(self, plaintext : str, keyword : str = None) -> str:
+    def encode(self, plaintext : str, keyword1 : str = None, keyword2 : str = None) -> str:
         pass
 
     @abstractmethod
-    def decode(self, ciphertext : str, keyword : str = None) -> str:
+    def decode(self, ciphertext : str, keyword1 : str = None, keyword2 : str = None) -> str:
         pass
 
     def numbers_to_letters(self, number : int) -> str:

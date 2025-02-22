@@ -5,15 +5,19 @@ class NihilistSolver(CipherSolver):
     def __init__(self) -> None:
         super().__init__()
     
-    def encode(self, plaintext, keyword = None) -> str:
-        polybius_square = self.get_polybius_key(keyword)
+    def encode(self, plaintext, keyword1 : str = None, keyword2 : str = None) -> str:
+        polybius_keyword = keyword1
+        text_keyword = keyword2
+        polybius_square = self.get_polybius_key(keyword1)
         list_of_plaintext_in_letters = []
         for letter in plaintext:
             list_of_plaintext_in_letters.append(self.get_number_of_letter_in_polybius_square(letter))
 
     
-    def decode(self, ciphertext, keyword = None) -> str:
-        return super().decode(ciphertext, keyword)
+    def decode(self, ciphertext, keyword1 : str = None, keyword2 : str = None) -> str:
+        polybius_keyword = keyword1
+        text_keyword = keyword2
+        return super().decode(ciphertext, keyword1)
     
     def get_polybius_key(self, keyword : str) -> list:
         polybius_square = [[], [], [], [], []]
